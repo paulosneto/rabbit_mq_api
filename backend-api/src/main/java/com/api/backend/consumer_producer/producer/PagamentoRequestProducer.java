@@ -7,12 +7,15 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+// "Componet" que conterá a classe de injeção de comunicação com o rabbitmq(AMQTemplate)
 @Component
 public class PagamentoRequestProducer {
 
+    // Injeção de dependência para leitura e demanda das filas
     @Autowired
     private AmqpTemplate amqpTemplate;
 
+    // Usado para deserializar os objetos strings enviado para o servidor
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public void integrar(PagamentoDTO pagamentoDTO) throws JsonProcessingException {

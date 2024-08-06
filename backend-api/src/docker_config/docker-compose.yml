@@ -7,3 +7,23 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
+
+#
+# Criar as QUEUES no RabbitMQ instanciado nas linhas de cima
+# define um "Name" "Type: Classic" "Durability: Durable" "Auto delete: No"
+#
+# Como no exemplo foi escolhido: pagamento-request-queue / pagamento-response-erro-queue / pagamento-response-sucesso-queue
+# Após criar as filas acima, se deve criar as exchanges( pagamento-request-exchange / pagamento-response-erro-exchange / pagamento-response-sucesso-exchange
+#
+# Adicionar "Bindings": para cada Queue e Exchange - atribuir
+#  - "Add binding from this exchange: To queue: pagamento-request-queue / Routing key: pagamento-request-rout-key
+#  - fd                                         pagamento-response-erro-queue / Routing key: pagamento-response-erro-rout-key
+#  - f                                          pagamento-response-sucesso-queue / Routing key: pagamento-response-sucesso-rout-key
+#  - df
+#  - Referencia -- https://www.youtube.com/watch?v=weAruTI623k&ab_channel=MasterDev
+#  -
+#  -
+#  -
+
+
+
